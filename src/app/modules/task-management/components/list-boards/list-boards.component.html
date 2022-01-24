@@ -1,0 +1,4 @@
+<p>list-boards works!</p>
+<div *ngFor="let item of list">
+    <p class="item_option" [routerLink]="'boards/' + item.id">{{ item.name }}</p>
+</div>
