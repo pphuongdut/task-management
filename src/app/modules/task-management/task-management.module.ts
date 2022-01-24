@@ -6,10 +6,10 @@ import { ThemeModule } from "@app/theme";
 import { ListBoardsComponent } from "./components/list-boards/list-boards.component";
 import { BoardComponent } from "./components/board/board.component";
 import { CardComponent } from "./components/card/card.component";
-import { TaskManagementComponent } from "./components/task-management/task-management.component";
+import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
-    declarations: [ListBoardsComponent, BoardComponent, CardComponent],
+    declarations: [ListBoardsComponent, BoardComponent, CardComponent, TaskComponent],
     imports: [
         CommonModule,
         ThemeModule,

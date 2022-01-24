@@ -1,1 +1,7 @@
-<p>card works!</p>
+<div class="card_content__wrapper">
+    <p>Cơ hội</p>
+    <dx-button icon="plus" text="Thêm công việc"> </dx-button>
+    <div>
+        <app-task *ngFor="let item of tasks"></app-task>
+    </div>
+</div>
