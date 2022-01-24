@@ -51,4 +51,15 @@ export class BoardComponent implements OnInit {
         },
     ];
     ngOnInit(): void {}
+    onDragStart(e) {
+        e.itemData = e.fromData[e.fromIndex];
+      }
+
+      onAdd(e) {
+        e.toData.splice(e.toIndex, 0, e.itemData);
+      }
+
+      onRemove(e) {
+        e.fromData.splice(e.fromIndex, 1);
+      }
 }

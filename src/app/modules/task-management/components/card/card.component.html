@@ -2,6 +2,23 @@
     <p>Cơ hội</p>
     <dx-button icon="plus" text="Thêm công việc"> </dx-button>
     <div>
-        <app-task *ngFor="let item of tasks"></app-task>
+        <dx-list
+            [dataSource]="tasks"
+            [repaintChangesOnly]="true"
+            keyExpr="name"
+        >
+            <div *dxTemplate="let item of 'item'">
+                <app-task> </app-task>
+            </div>
+            <dxo-item-dragging
+                group="name"
+                [data]="tasks"
+                [allowReordering]="true"
+                [onDragStart]="onDragStart"
+                [onAdd]="onAdd"
+                [onRemove]="onRemove"
+            >
+            </dxo-item-dragging>
+        </dx-list>
     </div>
 </div>
