@@ -1,4 +1,49 @@
 <div class="tag-content__wrapper">
-    <span>{{ task_.ordinal}}. {{ task_.name}}</span>
-
+    <div class="task-name">
+        <p>{{ task_.ordinal }}. {{ task_.name }}</p>
+    </div>
+    <div class="d-flex justify-content-between">
+        <dx-button
+            stylingMode="contained"
+            [text]="
+                task_.prioritize === 1
+                    ? 'Khẩn cấp'
+                    : task_.prioritize === 2
+                    ? 'Trung bình'
+                    : 'Bình thường'
+            "
+            [type]="
+                task_.prioritize === 1
+                    ? 'danger'
+                    : task_.prioritize === 2
+                    ? 'default'
+                    : 'success'
+            "
+            [width]="120"
+        >
+        </dx-button>
+        <div class="d-flex justify-content-center align-items-center">
+            <div *ngFor="let item of task_.tags" class="tag">
+                <i class="fas fa-tag" [style.color]="item.color"></i>
+            </div>
+        </div>
+    </div>
+    <div class="task-desc d-flex justify-content-between py-2">
+        <div class="d-flex">
+            <div class="dash-circle">
+                <i class="far fa-user"></i>
+            </div>
+            <div class="dash-circle">
+                <i class="far fa-calendar"></i>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <i class="far fa-comment-alt"></i>3
+            <i class="fas fa-paperclip"></i>2 3
+            <i class="fas fa-code-branch"></i>
+        </div>
+    </div>
+    <div class="task-todo" *ngIf="task_.todos.length > 0">
+        <p *ngFor="let item of task_.todos">{{ item.name }}</p>
+    </div>
 </div>

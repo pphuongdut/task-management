@@ -1,6 +1,26 @@
 <div class="card_content__wrapper">
-    <p> {{card.name + ' ' }}) </p>
-    <dx-button icon="plus" text="Thêm công việc"> </dx-button>
+    <p>{{ card.name + " " }}</p>
+    <ng-container *ngIf="!isShowAddPanel; else elseTemplate">
+        <dx-button
+            icon="plus"
+            ngClass="m-2 w-100 add-btn"
+            text="Thêm công việc"
+            (onClick)="toggleShowAddPanel()"
+        >
+        </dx-button>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <div class="m-2">
+            <dx-text-box value="John Smith"></dx-text-box>
+            <dx-button
+                text="Thêm"
+                [type]="'default'"
+                (onClick)="toggleShowAddPanel()"
+            >
+            </dx-button>
+        </div>
+    </ng-template>
+
     <div>
         <dx-list
             [dataSource]="tasks"

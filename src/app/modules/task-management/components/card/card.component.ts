@@ -15,6 +15,7 @@ export class CardComponent implements OnInit {
         private cardService: CardService
     ) {}
     tasks = new Array<TaskModel>();
+    isShowAddPanel: boolean = false;
     ngOnInit(): void {
         this.taskService.getTasks().subscribe((data) => {
             this.tasks = data;
@@ -42,5 +43,12 @@ export class CardComponent implements OnInit {
 
     onRemove(e) {
         e.fromData.splice(e.fromIndex, 1);
+    }
+    toggleShowAddPanel() {
+        this.isShowAddPanel = !this.isShowAddPanel;
+        console.log(this.isShowAddPanel )
+    }
+    handleAddTask() {
+
     }
 }

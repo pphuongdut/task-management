@@ -7,11 +7,11 @@ export class TaskModel {
     count: number;
     curator: string; // người phụ trách
     duration: string;
-    prioritize: string;
-    tags: Array<string>;
+    prioritize: number;
+    tags: Array<TagModel>;
     description: string;
     major: Array<string>;
-    todos: Array<string>;
+    todos: Array<TodoModel>;
 
     constructor(init?: Partial<TaskModel>) {
         Object.assign(this, init);
@@ -22,7 +22,16 @@ export class TodoModel {
     name: string;
     status: number;
 
-    constructor(init?: Partial<TaskModel>) {
+    constructor(init?: Partial<TodoModel>) {
+        Object.assign(this, init);
+    }
+}
+export class TagModel {
+    id: string;
+    name: string;
+    color: string;
+
+    constructor(init?: Partial<TagModel>) {
         Object.assign(this, init);
     }
 }
