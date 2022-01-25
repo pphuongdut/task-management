@@ -1,3 +1,6 @@
+import { TaskService } from "./services/task.services";
+import { CardService } from "./services/card.services";
+import { BoardService } from "./services/board.services";
 import { RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -6,10 +9,15 @@ import { ThemeModule } from "@app/theme";
 import { ListBoardsComponent } from "./components/list-boards/list-boards.component";
 import { BoardComponent } from "./components/board/board.component";
 import { CardComponent } from "./components/card/card.component";
-import { TaskComponent } from './components/task/task.component';
+import { TaskComponent } from "./components/task/task.component";
 
 @NgModule({
-    declarations: [ListBoardsComponent, BoardComponent, CardComponent, TaskComponent],
+    declarations: [
+        ListBoardsComponent,
+        BoardComponent,
+        CardComponent,
+        TaskComponent,
+    ],
     imports: [
         CommonModule,
         ThemeModule,
@@ -30,5 +38,6 @@ import { TaskComponent } from './components/task/task.component';
             },
         ]),
     ],
+    providers: [BoardService, CardService, TaskService],
 })
 export class TaskManagementModule {}

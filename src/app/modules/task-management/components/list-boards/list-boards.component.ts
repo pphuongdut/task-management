@@ -1,3 +1,5 @@
+import { BoardService } from './../../services/board.services';
+import { BoardModel } from '@app/modules/task-management/models/board.model';
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -6,23 +8,12 @@ import { Component, OnInit } from "@angular/core";
     styleUrls: ["./list-boards.component.scss"],
 })
 export class ListBoardsComponent implements OnInit {
-    constructor() {}
+    boards = new Array<BoardModel>();
+    constructor(private boardService: BoardService) {}
 
-    ngOnInit(): void {}
-    list = [
-        {
-            id: "123",
-            name: "Board 1",
-        },
-        {
-            id: "121",
-            name: "Board 2",
-        },
-        {
-            id: "122",
-            name: "Board 3",
-        },
-
-
-    ];
+    ngOnInit(): void {
+        this.boardService.getBoards().subscribe( (data) => {
+            this.boards = data
+        })
+    }
 }

@@ -1,5 +1,5 @@
 <div class="card_content__wrapper">
-    <p>Cơ hội</p>
+    <p> {{card.name }} ( {{ card.count }}) </p>
     <dx-button icon="plus" text="Thêm công việc"> </dx-button>
     <div>
         <dx-list
@@ -8,7 +8,7 @@
             keyExpr="name"
         >
             <div *dxTemplate="let item of 'item'">
-                <app-task> </app-task>
+                <app-task [task]="item.tasks"> </app-task>
             </div>
             <dxo-item-dragging
                 group="name"

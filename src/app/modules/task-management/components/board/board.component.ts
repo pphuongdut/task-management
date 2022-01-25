@@ -1,4 +1,8 @@
+import { BoardService } from './../../services/board.services';
+import { CardService } from "./../../services/card.services";
+import { CardModel } from "@app/modules/task-management/models/Card.model";
 import { Component, OnInit } from "@angular/core";
+import { BoardModel } from "../../models/Board.model";
 
 @Component({
     selector: "app-board",
@@ -6,60 +10,24 @@ import { Component, OnInit } from "@angular/core";
     styleUrls: ["./board.component.scss"],
 })
 export class BoardComponent implements OnInit {
-    constructor() {}
-    cards = [
-        {
-            id: "123",
-            name: "Board 1",
-        },
-        {
-            id: "121",
-            name: "Board 2",
-        },
-        {
-            id: "122",
-            name: "Board 3",
-        },
-        {
-            id: "123",
-            name: "Board 1",
-        },
-        {
-            id: "123",
-            name: "Board 1",
-        },
-
-        {
-            id: "123",
-            name: "Board 1",
-        },
-        {
-            id: "123",
-            name: "Board 1",
-        },
-        {
-            id: "123",
-            name: "Board 1",
-        },
-        {
-            id: "123",
-            name: "Board 1",
-        },
-        {
-            id: "123",
-            name: "Board 1",
-        },
-    ];
-    ngOnInit(): void {}
+    constructor(private boardService: BoardService) {}
+    board = new BoardModel();
+    cards = new Array<CardModel>();
+    ngOnInit(): void {
+        this.boardService.getBoardById(1).subscribe((data) => {
+            this.board = data;
+            this.cards = this.board.cards
+        });
+    }
     onDragStart(e) {
         e.itemData = e.fromData[e.fromIndex];
-      }
+    }
 
-      onAdd(e) {
+    onAdd(e) {
         e.toData.splice(e.toIndex, 0, e.itemData);
-      }
+    }
 
-      onRemove(e) {
+    onRemove(e) {
         e.fromData.splice(e.fromIndex, 1);
-      }
+    }
 }

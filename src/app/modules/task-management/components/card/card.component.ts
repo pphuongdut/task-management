@@ -1,4 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { CardService } from "./../../services/card.services";
+import { TaskService } from "./../../services/task.services";
+import { TaskModel } from "@app/modules/task-management/models/task.model";
+import { CardModel } from "@app/modules/task-management/models/Card.model";
+import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
 
 @Component({
     selector: "app-card",
@@ -6,23 +10,28 @@ import { Component, OnInit } from "@angular/core";
     styleUrls: ["./card.component.scss"],
 })
 export class CardComponent implements OnInit {
-    constructor() {}
+    constructor(
+        private taskService: TaskService,
+        private cardService: CardService
+    ) {}
+    tasks = new Array<TaskModel>();
+    ngOnInit(): void {
+        this.taskService.getTasks().subscribe((data) => {
+            this.tasks = data;
+        });
+    }
 
-    ngOnInit(): void {}
-    tasks = [
-        {
-            id: "123",
-            name: "Board 1",
-        },
-        {
-            id: "121",
-            name: "Board 2",
-        },
-        {
-            id: "122",
-            name: "Board 3",
-        },
-    ];
+    @Input() card = CardModel;
+    ngOnChanges(changes: SimpleChanges) {
+        // if (changes && changes.searchString) {
+        //   const currentValue = changes.searchString.currentValue;
+        //   const previousValue = changes.searchString.previousValue;
+        //   if (currentValue !== previousValue) {
+        //     this.loadUsers();
+        //   }
+        // }
+    }
+
     onDragStart(e) {
         e.itemData = e.fromData[e.fromIndex];
     }

@@ -1,9 +1,11 @@
 <div class="task__container">
     <div>
         <dx-button icon="fieldchooser"> </dx-button>
-        <span> Quy trình - Tính đẹp trai </span>
+        <span> {{ board.name}} </span>
     </div>
     <div class="card_container">
-        <app-card *ngFor="let item of cards"> </app-card>
+        <div *ngFor="let item of cards">
+            <app-card [card]="item"> </app-card>
+        </div>
     </div>
 </div>

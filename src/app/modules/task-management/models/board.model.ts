@@ -1,10 +1,11 @@
-export class BoardModel {
-    name: string;
-    color: string;
-    task: Array<any>;
-    count: number;
+import { CardModel } from "@app/modules/task-management/models/Card.model";
 
+export class BoardModel {
+    id: string;
+    name: string;
+    cards: Array<CardModel>;
+    curator: string; // người phụ trách
     constructor(init?: Partial<BoardModel>) {
-      Object.assign(this, init);
+        Object.assign(this, init);
     }
-  }
+}
