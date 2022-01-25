@@ -39,6 +39,11 @@ export const ADMIN_MENU = [
         text: 'Revenue',
         link: '/admin/revenue',
         icon: 'fas fa-funnel-dollar'
+    },
+    {
+        text: 'Task',
+        link: '/admin/task-management',
+        icon: 'fas fa-task'
     }
 ];
 

@@ -1,7 +1,7 @@
 import { CardService } from "./../../services/card.services";
 import { TaskService } from "./../../services/task.services";
 import { TaskModel } from "@app/modules/task-management/models/task.model";
-import { CardModel } from "@app/modules/task-management/models/Card.model";
+import { CardModel } from "@app/modules/task-management/models/card.model";
 import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
 
 @Component({

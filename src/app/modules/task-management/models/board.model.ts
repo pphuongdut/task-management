@@ -1,4 +1,4 @@
-import { CardModel } from "@app/modules/task-management/models/Card.model";
+import { CardModel } from "@app/modules/task-management/models/card.model";
 
 export class BoardModel {
     id: string;

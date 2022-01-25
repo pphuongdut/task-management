@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "task-management-12a98": {
+      "hosting": {
+        "app": [
+          "task-management-12a98"
+        ]
+      }
+    }
+  }
+}

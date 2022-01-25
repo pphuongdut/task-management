@@ -37,10 +37,8 @@ export class LoginFormComponent {
     this.isSubmitting = true;
     this.authService.login(param).subscribe((data) => {
       this.isSubmitting = false;
-      //
       this.authService.setCurrentUser(data);
-      //
-      this.authService.redirectToHome('/');
+      this.authService.redirectToHome();
     }, () => {
       this.isSubmitting = false;
     });

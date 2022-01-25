@@ -8,10 +8,10 @@ export class TaskModel {
     curator: string; // người phụ trách
     duration: string;
     prioritize: string;
-    tags: Array<any>;
+    tags: Array<string>;
     description: string;
-    major: Array<any>;
-    todos: Array<any>;
+    major: Array<string>;
+    todos: Array<string>;
 
     constructor(init?: Partial<TaskModel>) {
         Object.assign(this, init);

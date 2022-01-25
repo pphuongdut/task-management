@@ -1,10 +1,10 @@
-import { BoardModel } from '@app/modules/task-management/models/Board.model';
+import { BoardModel } from '@app/modules/task-management/models/board.model';
 import {Observable, of} from 'rxjs';
 import {random} from 'lodash';
 
 import {environment} from '@environment';
 import {LoadParamModel, LoadResultModel} from '@app/modules/core/models';
-import { randomBoard, randomListBoard } from 'app/mocks/Board/Board.mock';
+import { randomBoard, randomListBoard } from 'app/mocks/board/board.mock';
 
 export class BoardService {
 

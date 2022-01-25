@@ -1,4 +1,4 @@
-import { TaskModel } from '@app/modules/task-management/models/Task.model';
+import { TaskModel } from '@app/modules/task-management/models/task.model';
 import {Observable, of} from 'rxjs';
 import {random} from 'lodash';
 

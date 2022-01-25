@@ -75,8 +75,6 @@ export class BookingDetailComponent implements OnInit {
                 this.editingBooking.activities.push(key);
             }
         }
-        //
-        console.log(this.editingBooking);
         this.bookingsService.saveBooking(this.editingBooking).subscribe((account) => {
             let message = 'Created success';
             if (this.editingBooking.id) {

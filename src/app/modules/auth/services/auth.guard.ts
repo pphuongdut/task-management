@@ -17,8 +17,8 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
       return true;
     }
     //
-    this.authService.removeCurrentUser(false);
-    this.apiService.navigateToLogin(true);
+    // this.authService.removeCurrentUser(false);
+    // this.apiService.navigateToLogin(true);
     //
     return false;
   }

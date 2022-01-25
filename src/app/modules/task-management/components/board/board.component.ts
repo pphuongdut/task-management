@@ -1,8 +1,8 @@
 import { BoardService } from './../../services/board.services';
 import { CardService } from "./../../services/card.services";
-import { CardModel } from "@app/modules/task-management/models/Card.model";
+import { CardModel } from "@app/modules/task-management/models/card.model";
 import { Component, OnInit } from "@angular/core";
-import { BoardModel } from "../../models/Board.model";
+import { BoardModel } from "../../models/board.model";
 
 @Component({
     selector: "app-board",

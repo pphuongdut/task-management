@@ -69,6 +69,10 @@ const PROVIDERS = [
                     {
                         path: 'revenue',
                         component: RevenueComponent
+                    },
+                    {
+                        path: 'task-management',
+                        loadChildren: () => import('../task-management/task-management.module').then((m) => m.TaskManagementModule),
                     }
                 ]
             }
@@ -85,7 +89,7 @@ const PROVIDERS = [
         RevenueComponent,
         BookingDetailComponent,
         PartnersDetailComponent,
-        SearchFormComponent
+        SearchFormComponent,
     ],
     providers: [
         ...PROVIDERS

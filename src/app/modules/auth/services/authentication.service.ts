@@ -48,9 +48,9 @@ export class AuthenticationService {
       return false;
     }
 
-    if (this.jwtHelper.isTokenExpired(this.apiService.accessToken)) {
-      return false;
-    }
+    // if (this.jwtHelper.isTokenExpired(this.apiService.accessToken)) {
+    //   return false;
+    // }
     // Will be refresh token
     return true;
   }
