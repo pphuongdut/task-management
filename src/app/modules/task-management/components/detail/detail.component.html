@@ -1,0 +1,128 @@
+<p>{{ task.name }}</p>
+
+<div class="form-wrapper">
+    <dx-validation-group>
+        <div class="detail__form-container">
+            <div class="row">
+                <label class="col-lg-3 col-sm-12">Nghiệp vụ </label>
+                <div class="col-lg-9">
+                    <dx-text-box
+                        class=""
+                        placeholder="Program name"
+                        [(value)]="task.name"
+                    >
+                    </dx-text-box>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-lg-3 col-sm-12">Người phụ trách </label>
+                <div class="col-xl-5 col-lg-9">
+                    <dx-text-box
+                        class=""
+                        placeholder="Program name"
+                        [(value)]="task.curator"
+                    >
+                    </dx-text-box>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-lg-3 col-sm-12">Thời hạn </label>
+                <div class="col-xl-5 col-lg-9">
+                    <dx-text-box
+                        class=""
+                        placeholder="Thời hạn"
+                        [(value)]="task.duration"
+                    >
+                    </dx-text-box>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-lg-3 col-sm-12">Ưu tiên </label>
+                <div class="col-xl-5 col-lg-9">
+                    <dx-button
+                        stylingMode="contained"
+                        [text]="
+                            task.prioritize === 1
+                                ? 'Khẩn cấp'
+                                : task.prioritize === 2
+                                ? 'Trung bình'
+                                : 'Bình thường'
+                        "
+                        [type]="
+                            task.prioritize === 1
+                                ? 'danger'
+                                : task.prioritize === 2
+                                ? 'default'
+                                : 'success'
+                        "
+                        [width]="120"
+                    >
+                    </dx-button>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-lg-3 col-sm-12">Thẻ</label>
+                <div class="col-xl-5 col-lg-9">
+                    <div class="dash-circle">
+                        <i class="far fa-calendar"></i>
+                    </div>
+                    <dx-text-box
+                        class=""
+                        placeholder="Gắn thẻ"
+                        [(value)]="task.tags"
+                    >
+                    </dx-text-box>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-lg-3 col-sm-12">Mô tả</label>
+                <div class="col-xl-5 col-lg-9">
+                    <dx-text-box
+                        class=""
+                        placeholder="Mô tả"
+                        [(value)]="task.description"
+                    >
+                    </dx-text-box>
+                </div>
+            </div>
+            <!-- <div class=" row">
+          <label class="col-lg-3 col-sm-12 ">Age group</label>
+          <div class="col-xl-5 col-lg-9 custom-slider">
+
+            <div class="slider-number">
+              <div>
+                {{ program.startAge }}
+              </div>
+              <div>
+                {{ program.endAge }}
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+            <!-- ------------------------------------------ -->
+            <p class="header-info">To-Do</p>
+            <hr
+                [ngStyle]="{
+                    border: '2px solid black',
+                    width: '100%',
+                    pr: '53px'
+                }"
+            />
+            <!-- <app-offering-list #offeringList [program]="program"></app-offering-list> -->
+        </div>
+
+        <div class="row justify-content-between btn__group">
+            <dx-button
+                height="42"
+                [icon]="'plus'"
+                [focusStateEnabled]="false"
+                text="Thêm To-do"
+                type="normal"
+            >
+            </dx-button>
+        </div>
+    </dx-validation-group>
+</div>

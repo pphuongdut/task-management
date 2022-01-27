@@ -28,7 +28,11 @@
             keyExpr="name"
         >
             <div *dxTemplate="let item of 'item'">
-                <app-task [task]="item.tasks"> </app-task>
+                <app-task
+                    (choseTask)="toggleDetailPopup(item)"
+                    [task]="item.tasks"
+                >
+                </app-task>
             </div>
             <dxo-item-dragging
                 group="name"
@@ -42,3 +46,26 @@
         </dx-list>
     </div>
 </div>
+<dx-popup
+    [width]="660"
+    [height]="'100vh'"
+    [showTitle]="true"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="true"
+    [(visible)]="popupVisible"
+>
+    <dxo-position my="right" at="right" of="#target"> </dxo-position>
+    <div *dxTemplate="let data of 'title'">
+        <div class="d-flex justify-content-end popup_header">
+            <i class="far fa-calendar"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-h"></i>
+            <i class="fas fa-sign-out-alt" (click)="toggleDetailPopup(selectedTask)"></i>
+        </div>
+    </div>
+    <div *dxTemplate="let data of 'content'">
+        <div class="popup-property-details">
+            <app-detail [task]="selectedTask"> </app-detail>
+        </div>
+    </div>
+</dx-popup>

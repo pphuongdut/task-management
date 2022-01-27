@@ -15,7 +15,9 @@ export class CardComponent implements OnInit {
         private cardService: CardService
     ) {}
     tasks = new Array<TaskModel>();
+    popupVisible: boolean = false;
     isShowAddPanel: boolean = false;
+    selectedTask: TaskModel;
     ngOnInit(): void {
         this.taskService.getTasks().subscribe((data) => {
             this.tasks = data;
@@ -46,9 +48,11 @@ export class CardComponent implements OnInit {
     }
     toggleShowAddPanel() {
         this.isShowAddPanel = !this.isShowAddPanel;
-        console.log(this.isShowAddPanel )
+        console.log(this.isShowAddPanel);
     }
-    handleAddTask() {
-
+    handleAddTask() {}
+    toggleDetailPopup(item) {
+        this.selectedTask = item;
+        this.popupVisible = !this.popupVisible;
     }
 }
