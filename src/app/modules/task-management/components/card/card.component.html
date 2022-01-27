@@ -29,7 +29,7 @@
         >
             <div *dxTemplate="let item of 'item'">
                 <app-task
-                    (choseTask)="toggleDetailPopup(item)"
+                    (choseTask)="toggleDetailPopup(item.tasks)"
                     [task]="item.tasks"
                 >
                 </app-task>

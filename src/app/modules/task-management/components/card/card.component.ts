@@ -52,6 +52,7 @@ export class CardComponent implements OnInit {
     }
     handleAddTask() {}
     toggleDetailPopup(item) {
+        console.log(item)
         this.selectedTask = item;
         this.popupVisible = !this.popupVisible;
     }
